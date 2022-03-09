@@ -1,3 +1,4 @@
+
 SELECT * FROM myguests
 
 INSERT INTO myguests ( firstname, lastname, email, reg_date)
@@ -429,3 +430,269 @@ FROM reservaciones
 SELECT * FROM reservaciones
 WHERE cantidadMesa IN(2, 3)
 
+SELECT * FROM clientes 
+select * FROM productos
+INSERT INTO clientes(nombre, apellido, direccion) 
+VALUES('Alejandro', 'Perez', 'Independencia 190');
+
+INSERT INTO clientes(nombre, apellido, direccion) 
+VALUES('Rosa', 'Hernandez', 'Av. Cotilla 130'); 
+
+
+
+INSERT INTO clientes(nombre, apellido, direccion) 
+VALUES('Mario', 'Gonzalez', 'Av. Carrusel 280');
+
+INSERT INTO clientes(nombre, apellido, direccion) 
+VALUES('Andrea', 'Gomez', 'Av. Zaragoza 290'); 
+
+
+INSERT INTO clientes(nombre, apellido, direccion) 
+VALUES('Ana', 'Velasco', 'Av. Avila 243'); 
+
+SHOW DATABASES 
+
+CREATE DATABASE salvadora 
+
+USE salvadora; 
+CREATE TABLE CLIENT(
+curp INT (10) NOT NULL, 
+nombre VARCHAR (20), 
+apellido VARCHAR (20), 
+direccion TEXT (50), 
+telefono INT (8)
+PRIMARY KEY(curp)); 
+DROP TABLE CLIENT;
+
+SHOW TABLES;
+ 
+USE salvadora; 
+CREATE TABLE 'salvadora', 'proveedor'(
+curp INT (10) NOT NULL, 
+nombre VARCHAR (20), 
+apellido VARCHAR (20), 
+direccion TEXT (50), 
+telefono INT (8)
+PRIMARY KEY(curp)); 
+
+USE salvadora; 
+CREATE TABLE producto( 
+codigo_producto INT (13) PRIMARY KEY autoIncrement, 
+nombre VARCHAR(22), 
+marca VARCHAR(22), 
+color VARCHAR(22), 
+modelo VARCHAR(22), 
+stock INT(100))AUTO_INCREMENT = 100; 
+
+CREATE TABLE compra(
+curp INT(13), 
+codigo_producto INT(13), 
+fecha_compra DATE,
+cantidad INT(100), 
+PRIMARY KEY(curp, codigo_producto));
+
+CREATE TABLE provee(
+id_proveedor INT(10), 
+codigo_producto INT(8), 
+fecha DATE, 
+cantidad INT(10), 
+PRIMARY KEY(id_proveedor, codigo_producto));
+
+DESCRIBE provee;
+
+CREATE TABLE users(
+id INT AUTO_INCREMENT PRIMARY KEY(10), 
+username VARCHAR(50) UNIQUE NOT null,
+email VARCHAR(100) UNIQUE NOT NULL,
+age INT(10) UNSIGNED NOT NULL, 
+STATUS ENUM('active', 'inactive') DEFAULT 'inactive',
+bio TEXT,
+created_at TIMESTAMP DEFAULT current_timestamp
+); 
+
+SHOW TABLES;
+DESC users; 
+DROP TABLE users 
+
+CREATE TABLE users(
+id INT(10) AUTO_INCREMENT PRIMARY KEY, 
+username VARCHAR(50) UNIQUE NOT null,
+email VARCHAR(100) UNIQUE NOT NULL,
+age INT(10) UNSIGNED NOT NULL, 
+STATUS ENUM('active', 'inactive') DEFAULT 'inactive',
+bio TEXT,
+created_at TIMESTAMP DEFAULT current_timestamp
+); 
+
+DESC users;
+SELECT * FROM users;
+
+INSERT INTO users (username, email, age, status, bio) VALUES('user11', 'user11@test.com', 17, 'active', null);
+INSERT INTO users (username, email, age, status, bio) VALUES('user2', 'user2@test.com', 22, 'active', NULL);
+INSERT INTO users (username, email, age, status, bio) VALUES('user3', 'user3@test.com', 32, 'active', NULL);
+INSERT INTO users (username, email, age, status, bio) VALUES('user4', 'user4@test.com', 27, 'active', NULL);
+INSERT INTO users (username, email, age, status, bio) VALUES('user5', 'user5@test.com', 13, 'active', NULL);
+INSERT INTO users (username, email, age, status, bio) VALUES('user6', 'user6@test.com', 16, 'active','Simle bio');
+INSERT INTO users (username, email, age, status, bio) VALUES('user7', 'user7@test.com', 25, 'active', 'Simle bio');
+INSERT INTO users (username, email, age, status, bio) VALUES('user8', 'user8@test.com', 24, 'active', 'Simle bio');
+
+SELECT * FROM users WHERE id = 8; 
+
+SELECT * FROM users WHERE id = 9; 
+
+SELECT * FROM users WHERE age > 25 
+SELECT * FROM users WHERE age < 30 
+
+SELECT * FROM users bio IS NULL; 
+SELECT * FROM users bio IS NOT NULL;  
+
+SELECT * FROM users WHERE created_at > '2022-03-07';
+
+SELECT * FROM users WHERE DATE(created_at) = '2022-03-07'; 
+
+SELECT * FROM users WHERE id = 1 OR id = 2 OR id = 3 OR id = 4; 
+ 
+SELECT age FROM users WHERE age >= 18; 
+
+SELECT * FROM users ORDER BY age ASC; 
+SELECT * FROM users ORDER BY age DESC; 
+
+SELECT username, email FROM users ORDER BY age ASC LIMIT 1;  
+SELECT username, email, age FROM users WHERE DATE(created_at) = '2022-03-07'; 
+
+SELECT *FROM users WHERE id = 1 OR id = 8 OR id = 9 OR id = 10; 
+SELECT * FROM users WHERE id IN (1, 8, 9, 10); 
+
+SELECT username, email, age FROM users WHERE age > 20 AND age < 55; 
+
+SELECT * FROM users WHERE email LIKE '%com'; 
+SELECT * FROM users WHERE email LIKE 'user%'; 
+
+UPDATE users SET bio ='Desarrollador de software(Backend)', username = 'Blancuras' WHERE id = 8; 
+DELETE FROM users WHERE id = 12; 
+
+SELECT * FROM users; 
+
+SELECT * FROM  users WHERE email LIKE '%com'; 
+SELECT * FROM users WHERE email LIKE '%8@%'; 
+
+INSERT INTO users(username, email,) VALUES ('user5', 'user5@test.com');
+--un usuario puede poseer multiples comentarios 
+--Comentario le pertenece a un usuario
+--Comments 
+
+CREATE TABLE comments(
+id INT AUTO_INCREMENT PRIMARY KEY, --unico
+title VARCHAR(50), 
+user_id INT(10), --llave foranea
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+FOREIGN KEY (user_id) REFERENCES users(id)
+ON DELETE CASCADE );
+
+DESC comments;
+SELECT * from users;
+INSERT INTO comments(title, user_id) VALUES ('Titulo 15', 9)
+SELECT * FROM comments;
+DELETE FROM users WHERE id = 9; 
+
+SELECT * FROM users LEFT JOIN comments ON users.id = comments.user_id 
+WHERE comments.user_id IS NOT NULL; 
+
+SELECT * FROM comments
+
+SELECT users.username, users.email, COUNT(*) 'cantidad_comentarios' 
+FROM users INNER JOIN comments ON users.id = comments.user_id 
+WHERE DATE( comments.created_at ) = '2022-03-08' GROUP BY users.username
+ORDER BY cantidad_comentarios DESC
+LIMIT 1;
+
+SET @username = 'user3'
+SELECT @username 
+
+SELECT @username AS 'valor' 
+
+SELECT * FROM users WHERE username = @username
+SET @username = 'user6'
+SELECT * FROM users WHERE username = @username; 
+SELECT id FROM users WHERE STATUS = 'active' ORDER BY created_at DESC LIMIT 1;
+SET @id =(SELECT id FROM users WHERE STATUS = 'active' ORDER BY created_at DESC LIMIT 1);
+SELECT @id 
+
+CREATE TABLE 'alumnos'(
+'id' INTEGER NOT NULL , 
+'nombre' VARCHAR(80) NOT NULL ,
+'apellido' VARCHAR(80) NOT NULL, 
+'email' VARCHAR(225) NOT NULL, 
+'telefono' VARCHAR(45) NOT NULL,
+'acedemia_id' INTEGER NOT NULL, 
+
+PRIMARY KEY ('id'), 
+KEY 'Ffkix_35'('academia_id'), 
+constrain 'Fk_34' FOREIGN key
+) 
+SELECT * FROM usuario
+
+CREATE TABLE usuario (
+id INT(11) NOT NULL AUTO_INCREMENT, 
+nombre VARCHAR(80) NOT NULL, 
+apellido VARCHAR(80) NOT NULL, 
+fecha_nacimiento DATETIME NULL
+PRIMARY KEY (id)); 
+DROP TABLE pmi.usuario
+
+
+
+pmi
+CREATE TABLE usuario (
+id INT(11) NOT NULL AUTO_INCREMENT, 
+nombre VARCHAR(80) NOT NULL, 
+apellido VARCHAR(80) NOT NULL, 
+fecha_nacimiento DATETIME NULL
+PRIMARY KEY (id)); 
+
+
+
+CREATE TABLE usuuarios(
+id INT(11) NOT NULL AUTO_INCREMENT, 
+nombre VARCHAR(80) NOT NULL, 
+apellido VARCHAR(80) NOT NULL, 
+fecha_nacimiento DATETIME NULL,
+PRIMARY KEY (id));  
+
+ALTER TABLE usuuarios ADD COLUMN telefono1 VARCHAR(45) NULL; 
+ALTER TABLE usuuarios MODIFY COLUMN telefono1 VARCHAR(30) NULL; 
+
+INSERT INTO usuuarios (
+nombre, apellido, fecha_nacimiento, telefono1)
+VALUES ('Lucas', 'Moy', '1998-04-04 10:00:00', '12344567'); 
+
+INSERT INTO usuuarios (
+nombre, apellido, fecha_nacimiento, telefono1)
+VALUES ('Pepe', 'Moy', '19-04-04 10:00:00', '12344567');  
+
+INSERT INTO usuuarios (
+nombre, apellido, fecha_nacimiento, telefono1)
+VALUES ('Pepe', 'Moy', '19-04-04 10:00:00', '1234477667'); 
+
+SELECT COUNT (*) AS 'cantidad' FROM usuuarios WHERE apellido = 'Moy' and nombre = 'Lucas';
+
+UPDATE usuuarios SET nombre = 'Pepe', apellido = 'Angelini' WHERE id = 2; 
+
+SELECT * FROM usuuarios
+SELECT * from usuuarios WHERE apellido LIKE 'Mo%' 
+
+CREATE TABLE publicaciones (
+id INT(11) NOT NULL AUTO_INCREMENT, 
+autor_id INT(11) NOT NULL, 
+titulo VARCHAR(150) NOT NULL, 
+texto text(80) NOT NULL, 
+PRIMARY KEY(id), 
+FOREIGN KEY(autor_id) REFERENCES usuuarios(id)
+);  
+SELECT * FROM publicaciones
+
+INSERT INTO publicaciones( 
+autor_id, titulo, texto
+) VALUES (
+'3', 'Prueba de Publicacion'
+)
