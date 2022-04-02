@@ -30,4 +30,16 @@ public class UrlsController {
 		System.out.println("Page");
 		return "holapage";
 	}
+	
+	@GetMapping("/hola4")
+	public String holapage4() {
+		System.out.println("index2");
+		return "index2";
+	}
+	
+	@GetMapping("/hola5")
+	public String holapage5() {
+		System.out.println("index2.html");
+		return "index2.html";
+	}
 }
