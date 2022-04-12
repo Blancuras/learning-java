@@ -13,22 +13,13 @@ public class PruebaAritmetica {
 		
 		//Imprimimos los valores de los operados
 		System.out.println("OperandoA = " + operandoA);
-		System.out.println("OperandoB = " + operandoB);
+		System.out.println("OperandoB = " + operandoB); 
+		
+		//Imprimimos el resultado de la suma 
+		System.out.println("\nResultado suma: " + objeto1.sumar()); 
+		System.out.println("\nResultado resta: " + objeto1.restar()); 
+		System.out.println("\nResultado de la multiplicacion es: " + objeto1.multiplicar()); 
+		System.out.println("\nEl resultado de la division es: " + objeto1.dividir());
 	}
-	
-
-	
-	
-		/*//Creamos un objeto de tipo aritmetica
-		Aritmetica aritmetica = new Aritmetica(); 
-		aritmetica.a = 10; 
-		aritmetica.b = 3; 
-		int resultado = aritmetica.sumar(); 
-		
-		System.out.println("resultado = " + resultado);
-		
-		//Creacion de un segundo objeto Aritmetica
-		Aritmetica aritmetica2 = new Aritmetica(4,2);
-		System.out.println("resultado2 = " + aritmetica2.sumar());*/
 	
 }

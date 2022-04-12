@@ -9,9 +9,9 @@ public class Aritmetica {
 		System.out.println("Ejecutando constructor vacio");
 	}
 
-	public Aritmetica(int argumento1, int argumento2) {
-		a = argumento1;
-		b = argumento2;
+	public Aritmetica(int a, int b) {
+		this.a = a;
+		this.b = b;
 		System.out.println("Ejecutando constructor con dos argumentos");
 	}
 

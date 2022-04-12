@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="form-group">
+			<label for="id">Id:</label>
+			<input type="text" class="form-control" id="id" placeholder="Ingresa tu id" name="id">
+		</div>
+		
+		<div class="form-group">
+			<label for="name">Nombre:</label>
+			<input type="text" class="form-control" id="name" placeholder="Ingresa tu nombre" name="nombre">
+		</div>
+		<button onclick="guardarNombre()">Guardar</button>
+		<button onclick="actualizarNombre()">Actualizar</button>
+		<button type="submit" class="btn btn-default">Borrar</button>
+		<button type="submit" class="btn btn-default">Consultar</button>
+
+
+
+		<h2>Nombres</h2>
+		<table class="table ">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nombre</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>15</td>
+					<td>John</td>
+				</tr>
+				<tr>
+					<td>16</td>
+					<td>Ana</td>
+				</tr>
+				<tr>
+					<td>17</td>
+					<td>Andres</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<script>
+		function guardarNombre() {
+
+			$.ajax({
+				url: '/11-abril/guardar',
+				dataType: 'json',
+				type: 'put',
+				contentType: 'application/json',
+				data: JSON.stringify(
+					{
+						"nombre": $('#name').val()
+					}
+				),
+				processData: false,
+				success: function (data, textStatus, jQxhr) {
+					console.log("Todo bien" + JSON.stringify(data));
+				},
+				error: function (jqXhr, textStatus, errorThrown) {
+					console.log("Error " + JSON.stringify(data));
+				}
+			});
+		}
+		function actualizarNombre() {
+
+			$.ajax({
+				url: '/11-abril/actualizar',
+				dataType: 'json',
+				type: 'post',
+				contentType: 'application/json',
+				data: JSON.stringify(
+					{
+						"id" : $('#id').val(),
+						"nombre" : $('#name').val()
+					} 
+				),
+				processData: false,
+				success: function (data, textStatus, jQxhr) {
+					console.log("Todo bien" + JSON.stringify(data));
+				},
+				error: function (jqXhr, textStatus, errorThrown) {
+					console.log("Error " + JSON.stringify(jqXhr));
+				}
+			});
+		}
+
+
+	</script>
+</body>
+
+</html>
