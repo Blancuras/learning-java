@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -40,4 +41,12 @@ public class NombreController {
 		return new ResponseEntity<>(nombreEntity, HttpStatus.OK);
 		
 	}
+	
+	@DeleteMapping("/borrar") 
+	public ResponseEntity<String> borrarNombres(@RequestBody NombreEntity nombreEntity){
+		String eliminar = nombreService.borrarNombre(nombreEntity);
+		return new ResponseEntity<String>(eliminar, HttpStatus.OK);
+	}
+	
+	
 }
