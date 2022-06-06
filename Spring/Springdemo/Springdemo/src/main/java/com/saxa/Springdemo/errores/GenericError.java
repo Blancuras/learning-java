@@ -1,4 +1,4 @@
-package com.saxa.Springdemo.errores;
+package com.saxa.springdemo.errores;
 
 public class GenericError extends RuntimeException {
  

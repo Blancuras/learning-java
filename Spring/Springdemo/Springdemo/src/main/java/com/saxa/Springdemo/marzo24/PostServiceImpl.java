@@ -1,4 +1,4 @@
-package com.saxa.Springdemo.marzo24;
+package com.saxa.springdemo.marzo24;
 
 import java.util.List;
 

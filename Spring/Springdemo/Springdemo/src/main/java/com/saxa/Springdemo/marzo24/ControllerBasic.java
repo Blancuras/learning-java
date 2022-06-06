@@ -1,4 +1,4 @@
-package com.saxa.Springdemo.marzo24;
+package com.saxa.springdemo.marzo24;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.saxa.Springdemo.marzo24.configuracion.Paginas;
+import com.saxa.springdemo.marzo24.configuracion.Paginas;
 
 @Controller
 @RequestMapping("/24marzo/home")

@@ -1,4 +1,4 @@
-package com.saxa.Springdemo.abril2;
+package com.saxa.springdemo.abril2.productos;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class ProductosService {
 
 	@Autowired
-	private ProductosRepository productoRepository;
+	private ProductosDaoRepositories productoRepository;
 
 	public List<ProductoEntity> consultarProductos() { // llama a los metodos del repository
 		return productoRepository.findAll();

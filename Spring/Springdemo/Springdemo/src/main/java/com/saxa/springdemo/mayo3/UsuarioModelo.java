@@ -1,4 +1,4 @@
-package com.saxa.springdemo.abril2.nombres;
+package com.saxa.springdemo.mayo3;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,13 +7,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "nombres")
-public class NombreEntity {
-	@Id
+@Table(name = "usuario3")
+public class UsuarioModelo {
+	
+	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombre;
-
+	private String email;
+	private Integer prioridad;
+	
 	public Long getId() {
 		return id;
 	}
@@ -30,11 +33,20 @@ public class NombreEntity {
 		this.nombre = nombre;
 	}
 
-	@Override
-	public String toString() {
-		return "NombreEntity [" + (id != null ? "id=" + id + ", " : "") + (nombre != null ? "nombre=" + nombre : "")
-				+ "]";
+	public String getEmail() {
+		return email;
 	}
 
-	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Integer getPrioridad() {
+		return prioridad;
+	}
+
+	public void setPrioridad(Integer prioridad) {
+		this.prioridad = prioridad;
+	}
+
 }

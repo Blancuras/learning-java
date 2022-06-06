@@ -1,4 +1,4 @@
-package com.saxa.Springdemo.abril2.nombres;
+package com.saxa.springdemo.abril2.nombres;
 
 import java.util.List;
 

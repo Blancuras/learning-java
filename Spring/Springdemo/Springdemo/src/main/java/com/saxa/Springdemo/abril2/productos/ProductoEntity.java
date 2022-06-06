@@ -1,4 +1,4 @@
-package com.saxa.Springdemo.abril2;
+package com.saxa.springdemo.abril2.productos;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

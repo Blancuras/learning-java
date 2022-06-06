@@ -1,11 +1,9 @@
-package com.saxa.Springdemo;
+package com.saxa.springdemo;
 
 import org.springframework.http.HttpStatus;
 
 public class GenericResponseDTO<T> {
 	 
-	private String id;
- 
 	private int statusCode;
  
 	private String statusName;
@@ -37,12 +35,6 @@ public class GenericResponseDTO<T> {
 	}
 	public void setDetails(T details) {
 		this.details = details;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
 	}
  
 	public static <T> GenericResponseDTO<T> build( HttpStatus status, String message, T details){

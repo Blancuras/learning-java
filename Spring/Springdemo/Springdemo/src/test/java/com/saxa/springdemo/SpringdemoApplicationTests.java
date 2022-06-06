@@ -1,4 +1,4 @@
-package com.saxa.Springdemo;
+package com.saxa.springdemo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

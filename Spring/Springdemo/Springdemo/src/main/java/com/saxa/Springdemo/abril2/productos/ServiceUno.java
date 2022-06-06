@@ -1,4 +1,4 @@
-package com.saxa.Springdemo.abril2;
+package com.saxa.springdemo.abril2.productos;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.saxa.Springdemo.abril2.nombres.NombreEntity;
+import com.saxa.springdemo.abril2.nombres.NombreEntity;
 
 @Service
 public class ServiceUno {

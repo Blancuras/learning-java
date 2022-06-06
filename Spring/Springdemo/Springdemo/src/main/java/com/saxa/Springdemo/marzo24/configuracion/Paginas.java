@@ -1,4 +1,4 @@
-package com.saxa.Springdemo.marzo24.configuracion;
+package com.saxa.springdemo.marzo24.configuracion;
 
 public class Paginas {
 	public static String HOME = "index";

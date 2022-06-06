@@ -1,4 +1,4 @@
-package com.saxa.Springdemo.marzo24.configuracion;
+package com.saxa.springdemo.marzo24.configuracion;
 
 import org.springframework.context.annotation.Bean;
 

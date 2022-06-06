@@ -1,17 +1,17 @@
-package com.saxa.Springdemo.abril2.nombres;
+package com.saxa.springdemo.abril2.nombres;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.saxa.Springdemo.errores.GenericError;
+import com.saxa.springdemo.errores.GenericError;
 
 @Service
 public class NombreService {
 
 	@Autowired
-	private NombreRepository nombreRepository;
+	private NombreDAORepositories nombreRepository;
 
 	public NombreEntity createNombre(NombreEntity nombreEntity) {
 		return nombreRepository.save(nombreEntity);
@@ -35,8 +35,10 @@ public class NombreService {
 	} 
 	public String borrarNombre(NombreEntity nombreEntity) {
 		//verificar que exista
+		//opcional
 		nombreRepository.findById(nombreEntity.getId())
 				.orElseThrow(() -> new GenericError("Id no encontrado"));
+		//opcional
 		
 		nombreRepository.delete(nombreEntity);
 		return "Se borro correctamente"; 

@@ -1,4 +1,4 @@
-package com.saxa.Springdemo.abril2;
+package com.saxa.springdemo.abril2.productos;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.saxa.Springdemo.abril2.nombres.NombreEntity;
+import com.saxa.springdemo.abril2.nombres.NombreEntity;
 
 @RestController
 @RequestMapping(value = "/2-abril")
@@ -41,7 +41,7 @@ public class ControllerUno {
 	} 
 	
 	@GetMapping("/nombres")
-	public ResponseEntity< List<NombreEntity> >    obtenerNombres(){
+	public ResponseEntity< List<NombreEntity> > obtenerNombres(){
 		List<NombreEntity> nombres =serviceUno.obtenerNombres();
 		
 		return new ResponseEntity<>(nombres, HttpStatus.OK); 

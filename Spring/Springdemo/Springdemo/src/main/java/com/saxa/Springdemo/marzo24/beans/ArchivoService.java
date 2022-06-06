@@ -1,4 +1,4 @@
-package com.saxa.Springdemo.marzo24.beans;
+package com.saxa.springdemo.marzo24.beans;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;

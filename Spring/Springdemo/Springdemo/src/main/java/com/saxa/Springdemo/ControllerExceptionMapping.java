@@ -1,4 +1,4 @@
-package com.saxa.Springdemo;
+package com.saxa.springdemo;
 
 import java.util.Objects;
 
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.saxa.Springdemo.errores.GenericError;
+import com.saxa.springdemo.errores.GenericError;
 
 @ControllerAdvice
 public class ControllerExceptionMapping extends ResponseEntityExceptionHandler{
@@ -23,5 +23,7 @@ public class ControllerExceptionMapping extends ResponseEntityExceptionHandler{
 	private ResponseEntity<Object> formatException(Exception ex, Object body,  HttpStatus status, WebRequest request){
 		final String message = status.is5xxServerError() || Objects.isNull(body)? ex.getLocalizedMessage(): null;
 		return handleExceptionInternal(ex, GenericResponseDTO.build(status, message, body), new HttpHeaders(),  status,  request);
-	}
+	} 
+	
+	
 }
