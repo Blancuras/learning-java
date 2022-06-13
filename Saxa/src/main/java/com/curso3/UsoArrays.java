@@ -14,8 +14,8 @@ public class UsoArrays {
 		
 		for (int indice = 0; indice < miArreglo.length; indice++) {
 			int valor = miArreglo[indice];
-			System.out.println("cola "+ valor);
-			System.out.println("cola "+ miArreglo[indice]);
+			System.out.println("valor "+ valor);
+			System.out.println("valor "+ miArreglo[indice]);
 		}
 		
 //		for (int i=0;i<miArreglo.length;i++) {

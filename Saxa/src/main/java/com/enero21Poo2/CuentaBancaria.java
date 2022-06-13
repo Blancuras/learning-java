@@ -12,7 +12,7 @@ public class CuentaBancaria {
 
 	@Override
 	public String toString() {
-		return "Tucola CuentaBancaria [claveBancaria=" + claveBancaria + ", alias=" + alias + ", saldo=" + saldo + "]";
+		return " CuentaBancaria [claveBancaria=" + claveBancaria + ", alias=" + alias + ", saldo=" + saldo + "]";
 	}
 
 	double getSaldo() {

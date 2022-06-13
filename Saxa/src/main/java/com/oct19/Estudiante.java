@@ -21,7 +21,7 @@ public class Estudiante extends Persona {
 	}
 	@Override
 	public String toString() {
-		return "Estudiante [cola codigoEstudiante=" + codigoEstudiante + ", notaFinal=" + notaFinal + "]";
+		return "Estudiante [ codigoEstudiante=" + codigoEstudiante + ", notaFinal=" + notaFinal + "]";
 	}
 	
 	

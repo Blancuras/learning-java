@@ -33,7 +33,7 @@ id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 nombre   VARCHAR(100) NOT NULL, 
 precio FLOAT(7,2) NOT NULL
 )ENGINE=InnoDB AUTO_INCREMENT=1000;
-INSERT INTO productos (nombre, precio) VALUES ('piedra cola ', 150.50) 
+INSERT INTO productos (nombre, precio) VALUES ('piedra ', 150.50) 
 
 SELECT * FROM usuarios
 SELECT * FROM productos 
